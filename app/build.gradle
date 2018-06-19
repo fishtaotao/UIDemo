@@ -1,0 +1,61 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
+    defaultConfig {
+        applicationId "tao.tao.com"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:recyclerview-v7:21.0.0'
+    testCompile 'junit:junit:4.12'
+//listview渐入
+    compile 'com.willowtreeapps.spruce:spruce-android:1.0.1'
+    //手势锁
+    compile 'com.andrognito.patternlockview:patternlockview:1.0.0'
+    // Optional, for RxJava2 adapter
+    compile 'com.andrognito.patternlockview:patternlockview-reactive:1.0.0'
+    //卡片列表
+    compile 'com.loopeer.library:cardstack:1.0.2'
+    //广告弹窗
+    compile 'cn.yipianfengye.android:ad-library:1.0'
+    //引导页
+    compile 'cn.bingoogolapple:bga-banner:2.2.4@aar'
+    compile 'com.android.support:support-v4:26.+'
+    //刷新加载
+    //1.1.0 API改动过大，老用户升级需谨慎
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-5'
+    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-5'//没有使用特殊Header，可以不加这行
+    compile 'com.android.support:appcompat-v7:25.3.1'//版本 23以上（必须）
+
+//item侧滑菜单
+    compile 'com.github.anzaizai:EasySwipeMenuLayout:1.1.2'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+
+    //dagger2
+    compile"com.google.dagger:dagger:2.14.1"
+    annotationProcessor"com.google.dagger:dagger-compiler:2.14.1"
+
+    implementation 'com.blankj:utilcode:1.16.4'
+
+
+}
